@@ -1,0 +1,76 @@
+//2024/03/05
+
+#include<stdio.h>
+
+int main()
+{
+	int i = 1;
+	while (i <= 10)      
+	{
+		if (i == 5)
+			continue;      //i = 5时直接从while进行，但i还是5，所以不能向下进行；  若是break则直接结束该while
+		printf("%d\n", i);      //只能输出1-4
+		i++;
+	}
+
+	return 0;
+}
+
+
+int main()
+{
+  int i = 0;
+  while(i <= 10)
+  {
+    i++;
+    if(i == 5)
+      continue;          //虽然i=5时从while进行，但i++执行后i！=5，不再重复执行continue
+    printf("%d\n", i);    //输出1-4 6-11
+    
+  }
+  return 0;
+}
+
+
+int main()
+{
+	int ch = 0;
+	while ((ch = getchar()) != EOF)        //每次getchar只接收一个字符，若为多字符，则逐一进行接收并逐一从putchar输出
+	{
+		putchar(ch);
+	}
+
+	/*int ch = getchar();
+	putchar(ch);
+  printf("%c\n", ch);*/
+
+	return 0;
+}
+
+
+int main()
+{
+	int ret = 0;
+	int ch = 0;
+	int password[20] = {0};
+	printf("请输入密码:>\n");
+	scanf("%s", password);		        //scanf只能接收回车/空格/...等特殊字符之前的；
+								                    //其与其后的则会留在缓冲区，在此过程后边的步骤中会逐一被getchar从缓冲区接收；
+								                    //易导致ret处出错，后续无法正常进行
+	while ((ch = getchar()) != '\n')  
+	{
+		;
+	}
+								                    //由于getchar一次接收一个字符，故使用while来预防上种情况
+	printf("请确认(Y/N):>\n");
+	ret = getchar();
+	if (ret == 'Y')
+	{
+		printf("确认成功\n");
+	}
+	else 
+	{
+		printf("确认失败\n");
+	}
+	return 0;
+}
