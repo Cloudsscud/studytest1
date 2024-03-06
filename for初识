@@ -1,0 +1,42 @@
+//2024/03/06
+
+#include<stdio.h>
+
+int main()
+{
+	int i;
+	//		1		2		4
+	for (i = 1; i <= 10; i++)
+	{
+		if (i == 5)
+			break;  //1 2 3 4
+		printf("%d\n", i);	    //3
+	}
+	return 0;
+}
+
+for (i = 1; i <= 10; i++)
+{
+	if (i == 5)
+		continue;  //i=5时直接进入调整步骤使i=6并重新进入for中运行
+	printf("%d\n", i);  	//1-4,6-10
+}
+
+for (;;)//无限进行
+{
+	printf("Hello\n");
+}
+
+int main()
+{
+	int i = 0;
+	int j = 0;
+	for (i = 0; i < 10; i++)//2、每当内置的for结束时，返回该for的调整部分，并继续执行
+	{
+		for (j = 0; j <= 10; j++)//1、i=0时j要一直执行该for循环，直到不满足判断结果即j>10（i=11），该处for结束
+		{
+			printf("Hello\n");//100=10*10
+		}
+	}
+	return 0;
+}
