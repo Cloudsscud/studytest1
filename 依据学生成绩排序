@@ -1,0 +1,44 @@
+//2024/03/07
+
+#include<stdio.h>
+//学生成绩按从大到小排序输出
+struct student//构建学生体
+{
+	int num;
+	char name[20];
+	float score;
+};
+
+int main()
+{
+	struct student stu[5] =		//输入学生信息
+	{
+		{ 10001, "Lihua", 75 },
+		{ 10002, "Kate", 56 },
+		{ 10003, "Lucy", 47 },
+		{ 10004, "Ken", 89},
+		{ 10005, "Ann", 100}
+	};
+	struct student t;
+	int i, j, k;
+	for (i = 0; i < 4; i++)		//将成绩从大到小排序
+	{
+		k = i;
+		for (j = i + 1; j < 5; j++)
+		{
+			if (stu[j].score > stu[k].score)
+			{
+				k = j;
+			}
+		}
+		t = stu[k];
+		stu[k] = stu[i];
+		stu[i] = t;
+	}
+	for (i = 0; i < 5; i++)		//然后依次输出学生信息
+	{
+		printf("%d,%10s,%10.2f分\n", stu[i].num, stu[i].name, stu[i].score);
+	}
+
+	return 0;
+}
