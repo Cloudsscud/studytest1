@@ -1,4 +1,19 @@
+//2024/03/07
 //2024/03/06
+
+int main()
+{
+	int i = 0;
+	do
+	{
+		if (i == 5)
+			continue;//01234后死循环		//break 01234
+		printf("%d\n", i);
+		i++;
+	} while (i < 10);
+	return 0;
+}
+
 
 #include<stdio.h>
 
