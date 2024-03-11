@@ -1,0 +1,71 @@
+2024\03\11
+
+//从两侧逐渐打印一串字符
+
+#include<stdio.h>
+#include<string.h>
+#include<windows.h>
+#include<stdlib.h>
+
+int main()
+{
+	char arr1[] = "Practice makes perfect!";
+	char arr2[] = "#######################";
+	int left = 0;
+	int right = strlen(arr1) - 1;
+	while (left <= right)
+	{
+		arr2[left] = arr1[left];
+		arr2[right] = arr1[right];
+		printf("%s\n", arr2);
+		Sleep(1000);
+		system("cls");
+		left++;
+		right--;
+	}
+	printf("%s\n", arr2);
+	return 0;
+}
+
+//三次机会尝试输入密码
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<windows.h>
+
+int main()
+{
+	int i = 0;
+	char password1[20] = { 0 };
+	char password0[20] = { 0 };
+
+	printf("请创建您的密码\n");
+	scanf("%s", password0);
+	system("cls");
+	printf("请等待三秒\n");
+	Sleep(3000);
+	system("cls");
+
+	printf("好，现在您有三次机会尝试你刚设的密码\n");
+	for (i = 0; i < 3; i++)
+	{
+		printf("请输入密码:>\n");
+		scanf("%s", password1);
+		if (strcmp(password1, password0) == 0)
+		{
+			printf("密码正确\n");
+			break;
+		}
+		else
+		{
+			printf("密码错误,请重试\n");
+		}
+	}
+	if (i == 3)
+	{
+		system("cls");
+		printf("很遗憾，你忘记了密码\n");
+	}
+	
+	return 0;
+}
