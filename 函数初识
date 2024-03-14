@@ -1,0 +1,109 @@
+2024\03\14
+1)
+#include<stdio.h>
+#include<string.h>		//所引头文件
+
+int main()
+{
+	char arr1[] = "Hello";
+	char arr2[20] = "#############";
+	strcpy(arr2, arr1);		//替换的包括字符串后边的“0”
+	printf("%s\n", arr2);
+	printf("%s\n", arr1);
+	return 0;
+}
+
+2)
+int main()
+{
+	char arr[] = "Hello World";
+	memset(arr, '*', 4); //用 * 替换 arr 中前 四 个字符
+	printf("%s\n", arr);
+	return 0;
+}
+
+3)
+//互换两值
+ 01)使用指针变量可以实现对相应实际参数值的修改
+void Swap(int* pa, int* pb)
+{
+	int z = 0;
+	z = *pa;
+	*pa = *pb;
+	*pb = z;
+}
+int main()
+{
+	int a = 10;
+	int b = 20;
+	printf("a=%d,b=%d\n", a, b);
+	Swap(&a, &b);
+	printf("a=%d,b=%d\n", a, b);
+	return 0;
+}
+
+02)错误类型
+当实际参数传给形式参数时
+ 形式参数就可看做是实际参数的一份复制体
+ 但是形式参数的改变不会影响实际参数的值
+ 因此此处无法用该Swap互换ab
+void Swap(int x, int y)
+{
+	int z;
+	z = x;
+	x = y;
+	y = z;
+}
+
+int main()
+{
+	int a = 10;
+	int b = 9;
+	Swap(a, b);
+	printf("a=%d,b=%d", a, b);
+	return 0;
+}
+ 
+int get_max(int x, int y)
+{
+	int z;
+	if (x > y)
+		z = x;
+	else
+		z = y;
+	return(z);
+}
+int main()
+{
+	int a, b, c;
+	scanf("%d %d", &a, &b);
+	c = get_max(a, b);
+	printf("%d\n", c);
+	return 0;
+}
+
+4)
+#include<stdio.h>
+#include<math.h>
+//素数返回1，非素数返回0
+int is_prime(int n)
+{
+	int m;
+	for (m = 2; m < sqrt(n); m++)
+	{
+		if (n % m == 0)
+			return 0;
+	}
+	return 1;
+}
+
+int main()
+{
+	int i = 0;
+	for (i = 100; i <= 200; i++)
+	{
+		if (is_prime(i) == 1)
+			printf("%d ", i);
+	}
+	return 0;
+}
