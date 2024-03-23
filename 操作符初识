@@ -111,3 +111,12 @@ int main()
 	printf("%s\n", p1->name);
 	return 0;
 }
+
+int main()
+{
+	char a = 1;
+	printf("%u\n", sizeof(a));//char 类型 1字节
+	printf("%u\n", sizeof(+a));//+为算术（表达式）运算，a要整型提升，变为四字节
+	printf("%u\n", sizeof(!a));//！为逻辑反操作，不是算术（表达式）运算，无整型提升
+	return 0;
+}
