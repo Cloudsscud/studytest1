@@ -1,4 +1,4 @@
-2024/03/23
+2024/03/23 03/24
 
 #include<stdio.h>
 int main()
@@ -25,4 +25,70 @@ int main()
 		*(pa + 1) = 1;
 	}
 	return 0;
+}
+
+	//int arr[10] = { 1,2,3,4,5,6,7,8,9,10 };
+	//char ch[10] = { 0 };
+	//int* p1 = arr;
+	//int* p2 = &arr[0];
+	//printf("%d\n", *(p1+1));
+	//printf("%d\n", *(p2+1));
+	// 指针减指针必须在同一地址空间内进行
+	//printf("%d\n", &arr[9] - &arr[0]);		//同一个数组中靠后元素的地址-前方元素的地址=之间元素的个数
+	//printf("%d\n", &arr[9] - &ch[0]);		//必须用同一数组的元素地址进行算术运算
+	//return 0
+//}
+
+////用指针实现strlen
+//int my_strlen(char* arr)
+//{
+//	char* start = arr;
+//	char* end = arr;
+//	while (*end != '\0')
+//	{
+//		end++;
+//	}
+//	return end - start;
+//}
+//int main()
+//{
+//	char arr[] = "bit";
+//	int strlen = my_strlen(arr);
+//	printf("%d\n", strlen);
+//	return 0;
+//}
+
+int main()
+{
+	//int a = 10;
+	//int* pa = &a;//a的一级指针
+	//int** ppa = &pa;//a的二级指针，*说明ppa为一个指针，int*说明其指向对象pa类型为int*
+	//int*** pppa = &ppa;//a的三级指针,其中最后一个*说明pppa为一个指针，前边的int**是该指针指向对象的类型
+	//printf("%p\n", pppa);
+	//printf("%p\n", ppa);
+	//printf("%p\n", pa);
+
+	////指针在解引用时要依据其级数来加*
+	////比如我们要输出a的值
+	//printf("%d\n", ***pppa);
+	//printf("%d\n", **ppa);
+	//**ppa = 20;
+	//printf("%d\n", *pa);
+	//printf("%d\n", a);
+	//***pppa = 35;
+	//printf("%d\n", ***pppa);
+	//printf("%d\n", a);
+
+	////指针数组--本质是个数组，它用来存放地址
+	//int a = 10;
+	//int b = 2;
+	//int c = 4;
+	//int* arr[3] = { &a,&b,&c };
+	//int i = 0;
+	//for (i = 0; i < 3; i++)
+	//{
+	//	printf("%p\n", arr[i]);
+	//	printf("%d\n", *arr[i]);
+	//}
+	//return 0;
 }
