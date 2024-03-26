@@ -1,4 +1,4 @@
-2024/03/25
+2024/03/25 26
 
 //void Init(int arr[], int sz)
 //{
@@ -43,3 +43,53 @@
 //
 //	return 0;
 //}
+
+////依次打印一个二进制数的奇数位或偶数位
+//int main()
+//{
+//	int a = 10;
+//	int i = 0;
+//	printf("偶数位为:");
+//	for (i = 31; i >= 1; i -= 2)
+//	{
+//		printf("%d ", (a >> i) & 1);
+//	}
+//	printf("\n");
+//	printf("奇数位为:");
+//	for (i = 30; i >= 0; i -= 2)
+//	{
+//		printf("%d ", (a >> i) & 1);
+//	}
+//	return 0;
+//}
+
+//用递归实现一个数组元素的逆序
+int my_strlen(char* str)
+{
+	int count = 0;
+	while (*str != '\0')
+	{
+		count++;
+		str++;
+	}
+	return count;
+}
+
+void nipai(char arr[])
+{
+	int len = my_strlen(arr);
+	char temp = arr[0];
+	arr[0] = arr[len - 1];
+	arr[len - 1] = '\0';
+	if (my_strlen(arr+1) >= 2)
+		nipai(arr + 1);
+	arr[len - 1] = temp;
+}
+
+int main()
+{
+	char arr[] = "abcdefg";
+	nipai(arr);
+	printf("%s", arr);
+	return 0;
+}
