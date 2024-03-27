@@ -1,0 +1,29 @@
+2024/03/27
+
+////结构体的嵌套使用
+//typedef struct t1	//学生信息-姓名，学号，班级，电话
+//{
+//	char name[10];
+//	char xuehao[20];
+//	char class[10];
+//	char tel[20];
+//}Stu;
+// 
+//struct t2
+//{
+//	Stu s;
+//	char* ps;
+//	int w;
+//};
+// 
+//int main()
+//{
+//	char arr[] = "Hello World";
+//	Stu s1 = { "张三", "2525200", "252", "15112546852" };
+//	struct t2 s2 = { {"李四", "2225200", "222", "1415151552"}, arr, 250 };
+//	printf("%s ", s2.ps);
+//	printf("%s ", s1.tel);
+//	printf("%s ", s2.s.tel);
+//	printf("%d ", s2.w);
+//	return 0;
+//}
