@@ -1,0 +1,129 @@
+2024/04/11
+
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+
+void test1()
+{
+	int x = 0;
+	int y = 0;
+	printf("请输入x值:> ");
+	scanf("%d", &x);
+	if (x < 1)
+	{
+		y = x;
+	}
+	else if (x >= 1 && x < 10)
+	{
+		y = 2 * x - 1;
+	}
+	else
+	{
+		y = 3 * x - 11;
+	}
+	printf("y=%d\n", y);
+}
+
+#include<math.h>
+void test2()
+{
+	int x = 0;
+	while (1)
+	{
+		printf("请输入一个小于1000的正数:>");
+		scanf("%d", &x);
+		if (x < 1000)
+			break;
+		printf("请重新输入!\n");
+	}
+	printf("%d\n", (int)sqrt(x));
+}
+
+void test3_1()
+{
+	int x = 0;
+	printf("请输入成绩:>");
+	scanf("%d", &x);
+	switch (x / 10)
+	{
+	case 1:
+	case 2:
+	case 3:
+	case 4:
+	case 5:
+		printf("成绩为E\n");
+		break;
+	case 6:
+		printf("成绩为D\n");
+		break;
+	case 7:
+		printf("成绩为C\n");
+		break;
+	case 8:
+		printf("成绩为B\n");
+		break;
+	case 9:
+	case 10:
+		printf("成绩为A\n");
+		break;
+	default:
+		printf("输入数据错误\n");
+	}
+}
+void test3_2()
+{
+	int x = 0;
+	printf("请输入成绩:>");
+	scanf("%d", &x);
+	if (x >= 90 && x <= 100)
+		printf("A\n");
+	else if (x >= 80 && x <= 90)
+		printf("B\n");
+	else if (x >= 70 && x <= 80)
+		printf("C\n");
+	else if (x >= 60 && x <= 70)
+		printf("D\n");
+	else if (x >= 0 && x <= 60)
+		printf("E\n");
+	else
+		printf("输入数据错误\n");
+}
+
+void test4()
+{
+	int arr[4] = { 0 };
+	int i, j, k;
+	for (i = 0; i < 4; i++)
+	{
+		printf("请输入第%d个整数:>", i + 1);
+		scanf("%d", &arr[i]);
+	}
+	for (i = 0; i < 3; i++)	
+	{
+		int t;
+		k = i;
+		for (j = i + 1; j < 4; j++)
+		{
+			if (arr[j] <  arr[k])
+			{
+				k = j;
+			}
+		}
+		t =arr[k];
+		arr[k] = arr[i];
+		arr[i] = t;
+	}
+	for (i = 0; i < 4; i++)
+	{
+		printf("%d ", arr[i]);
+	}
+}
+int main()
+{
+	//test1();
+	//test2();
+	//test3_1();
+	//test3_2();
+	test4();
+	return 0;
+}
