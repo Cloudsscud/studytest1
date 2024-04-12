@@ -118,12 +118,74 @@ void test4()
 		printf("%d ", arr[i]);
 	}
 }
+void test5()
+{
+	char arr[32];
+	int number = 0, letter = 0, space = 0, other = 0, little_letter = 0, big_letter = 0;
+	printf("请输入一行字符:>");
+	int i = 0;
+	while ((arr[i] = getchar()) != '\n')//存储输入的一串字符
+	{
+		i++;
+	}
+	char* p = arr;
+	while (*p != '\n')
+	{
+		if (*p >= '0' && *p <= '9')//数字
+			number++;
+		//else if (*p >= 'a' && *p <= 'z' || *p >= 'A' && *p <= 'Z')//英文字母
+			//letter++;
+		else if (*p >= 'a' && *p <= 'z')//小写字母
+			little_letter++;
+		else if (*p >= 'A' && *p <= 'Z')//大写字母
+			big_letter++;
+		else if (*p == ' ')//空格
+			space++;
+		else//其他字符
+			other++;
+		p++;
+	}
+	//输出
+	//printf("数字有%d个,英文字母有%d个,大写字母有%d个,小写字母有%d个,空格有%d个,其他字符有%d个\n", number, letter, little_letter, big_letter, space, other);
+	printf("数字有%d个,小写字母有%d个,大写字母有%d个,空格有%d个,其他字符有%d个\n", number, little_letter, big_letter, space, other);
+}
+
+void test6()//找出水仙花数
+{
+	int i = 0;
+	int a, b, c;
+	for (i= 100; i < 1000; i++)
+	{
+		a = i / 100;//百位
+		b = (i / 10) % 10;//十位
+		c = i % 10;//个位
+		if (a * a * a + b * b * b + c * c * c == i)
+			printf("%d ", i);
+	}
+}
+
+
+void test7()
+{
+	int i = 0;
+	int end = 1;//第十天果子数
+	for (i = 0; i < 9; i++)//吃了9天
+	{
+		end = (end + 1) * 2;//每往前一天的果子数
+	}
+	printf("第一天摘得果子数%d ", end);
+	//1 4 10 22 46 94 190 382 766 1534
+}
+
 int main()
 {
 	//test1();
 	//test2();
 	//test3_1();
 	//test3_2();
-	test4();
+	//test4();
+	//test5();
+	//test6();
+	test7();
 	return 0;
 }
