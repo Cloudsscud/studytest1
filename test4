@@ -177,6 +177,27 @@ void test7()
 	//1 4 10 22 46 94 190 382 766 1534
 }
 
+递归写法:
+//经过的天数,现在的桃子数
+int Find_peaches(int days,int peaches)
+{
+	if(days>0)
+		return Find_peaches(days - 1, (peaches + 1)*2);
+	if (days == 0)
+		return peaches;
+}
+int main()
+{
+	int days = 0;
+	int peaches = 0;
+	printf("请输入现在是第几天:>");
+	scanf("%d", &days);
+	printf("请输入现在剩余桃子数:>");
+	scanf("%d", &peaches);
+	printf("第一天桃子数为%d\n", Find_peaches(days-1,peaches));
+	return 0;
+}
+
 int main()
 {
 	//test1();
